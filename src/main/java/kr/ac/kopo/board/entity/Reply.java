@@ -18,4 +18,6 @@ public class Reply extends BaseEntity {
     private Long rno;
 
     private String replyer;
+    private String text;
+
 }
