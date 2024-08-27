@@ -1,6 +1,9 @@
 package kr.ac.kopo.board.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Entity
@@ -8,15 +11,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "board") // 외부에 있는 것을 참조함
+@ToString
 public class Reply extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rno;
 
     private String replyer;
-    private String text;
-
-    @ManyToOne // M:1 설정
-    private Board board; // 실제 이름 board_bno
 }
