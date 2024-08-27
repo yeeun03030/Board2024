@@ -1,9 +1,6 @@
 package kr.ac.kopo.board.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -11,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(exclude = "writer")
 public class Board extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 증가 (auto-increment)
@@ -20,6 +17,6 @@ public class Board extends BaseEntity {
     private String title;
     private String content;
 
-
-    private String write_email;
+    @ManyToOne // M:1 설정
+    private Member writer; // Member(entity table명) writer => 실제 이름 writer_email (_email은 Member 테이블 내에 있는 email을 foreign key 설정)
 }
