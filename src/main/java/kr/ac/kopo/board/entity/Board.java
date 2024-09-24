@@ -19,4 +19,14 @@ public class Board extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY) // M:1 설정
     private Member writer; // Member(entity table명) writer => 실제 이름 writer_email (_email은 Member 테이블 내에 있는 email을 foreign key 설정)
+
+    // 변경된 제목으로 수정
+    public void changeTitle(String title) {
+        this.title = title;
+    }
+
+    // 변경된 내용으로 수정
+    public void changeContent(String content) {
+        this.content = content;
+    }
 }
