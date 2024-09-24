@@ -13,6 +13,12 @@ public interface BoardService {
     // 게시 목록을 반환하는 처리 기능
     PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
 
+    // 특정 게시글을 조회하는 기능 (한 개)
+    BoardDTO get(Long bno);
+
+    // Board 삭제 기능
+    void removeWithReplies(Long bno);
+
     // Repository에서 전달받은 Entity를 Dto로 변환하는 메소드
     default BoardDTO entityToDto(Board board, Member member, Long replyCount) {
 

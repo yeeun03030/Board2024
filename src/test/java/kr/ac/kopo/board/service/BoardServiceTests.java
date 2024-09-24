@@ -1,6 +1,9 @@
 package kr.ac.kopo.board.service;
 
 import kr.ac.kopo.board.dto.BoardDTO;
+import kr.ac.kopo.board.dto.PageRequestDTO;
+import kr.ac.kopo.board.dto.PageResultDTO;
+import kr.ac.kopo.board.entity.Board;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,5 +24,31 @@ public class BoardServiceTests {
 
         Long bno = boardService.register(dto); // 글 등록
         System.out.println("글이 정상적으로 등록되었습니다." + bno);
+    }
+
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+
+        PageResultDTO<BoardDTO, Object[]> result = boardService.getList(pageRequestDTO);
+
+        for (BoardDTO boardDTO: result.getDtoList()) {
+            System.out.println(boardDTO);
+        }
+    }
+
+    @Test
+    public void testGet() {
+        Long bno = 1L;
+
+        BoardDTO boardDTO = boardService.get(bno);
+
+        System.out.println(boardDTO);
+    }
+
+    @Test
+    public void testRemove() {
+        Long bno = 1L;
+        boardService.removeWithReplies(bno);
     }
 }
