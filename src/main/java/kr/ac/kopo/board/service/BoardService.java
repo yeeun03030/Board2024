@@ -1,12 +1,17 @@
 package kr.ac.kopo.board.service;
 
 import kr.ac.kopo.board.dto.BoardDTO;
+import kr.ac.kopo.board.dto.PageRequestDTO;
+import kr.ac.kopo.board.dto.PageResultDTO;
 import kr.ac.kopo.board.entity.Board;
 import kr.ac.kopo.board.entity.Member;
 
 public interface BoardService {
     // 새로운 글을 등록하는 기능
     Long register(BoardDTO dto);
+
+    // 게시 목록을 반환하는 처리 기능
+    PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
 
     // Repository에서 전달받은 Entity를 Dto로 변환하는 메소드
     default BoardDTO entityToDto(Board board, Member member, Long replyCount) {
