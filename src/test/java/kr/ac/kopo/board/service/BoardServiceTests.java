@@ -3,7 +3,6 @@ package kr.ac.kopo.board.service;
 import kr.ac.kopo.board.dto.BoardDTO;
 import kr.ac.kopo.board.dto.PageRequestDTO;
 import kr.ac.kopo.board.dto.PageResultDTO;
-import kr.ac.kopo.board.entity.Board;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,9 +16,9 @@ public class BoardServiceTests {
     @Test
     public void testRegister() {
         BoardDTO dto = BoardDTO.builder()
-                .title("101 Board Test...")
-                .content("101 Board Test Board Test Board Test")
-                .writerEmail("user3@kopo.ac.kr")
+                .title("102 Board Test...")
+                .content("102 Board Test Board Test Board Test")
+                .writerEmail("user2@kopo.ac.kr")
                 .build();
 
         Long bno = boardService.register(dto); // 글 등록
