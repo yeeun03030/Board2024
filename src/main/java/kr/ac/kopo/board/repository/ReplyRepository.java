@@ -16,7 +16,6 @@ public interface ReplyRepository extends JpaRepository<Reply, Long> {
     void deleteByBno(Long bno);
 
 //    게시물 번호에 해당하는 댓글 목록 반환
-
     List<Reply> getRepliesByBoardOrderByRno(Board board);
 
 }
